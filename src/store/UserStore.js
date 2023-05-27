@@ -14,7 +14,7 @@ export const useUserStore = defineStore("userStore", () => {
       const response = await axios.get(`${URL}`);
       dicts.value = response.data;
       console.log(dicts);
-      console.log(dicts.value[2]);
+      console.log(dicts.value.target[2]);
     } catch (err) {
       console.log("Error from SearchStore: " + err);
     } finally {
