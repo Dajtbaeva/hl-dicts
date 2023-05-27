@@ -1,5 +1,15 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import HelloWorld from "./components/HelloWorld.vue";
+import { useUserStore } from "./store/UserStore";
+import { onMounted } from "vue";
+
+export default {
+  setup() {
+    const { getDicts, movies } = useUserStore();
+    onMounted(getDicts);
+    return { movies };
+  },
+};
 </script>
 
 <template>
