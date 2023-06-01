@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 export const useUserStore = defineStore("userStore", () => {
   const dicts = ref({});
@@ -32,7 +32,7 @@ export const useUserStore = defineStore("userStore", () => {
       loading.value = false;
     }
   };
-  
+
   const getDictItems = async () => {
     try {
       loading.value = true;
@@ -45,12 +45,13 @@ export const useUserStore = defineStore("userStore", () => {
     } finally {
       loading.value = false;
     }
-    
-  }
+  };
+  onMounted(getDicts);
 
   return {
     getDicts,
     getDictItems,
     dicts,
+    loading,
   };
 });
