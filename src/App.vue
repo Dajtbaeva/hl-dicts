@@ -1,18 +1,32 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import { useUserStore } from "./store/UserStore";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 export default {
   setup() {
-    const { getDicts, movies } = useUserStore();
+    const page = ref();
+    const { getDicts, getDictItems, movies } = useUserStore();
     onMounted(getDicts);
-    return { movies };
+    return { movies, page };
   },
 };
 </script>
 
 <template>
+  <v-row style="margin: 0 100px">
+    <v-col cols="10">
+      <h2 style="color: #a1b1cb">Discover movies!</h2>
+    </v-col>
+  </v-row>
+  <v-pagination
+    v-model="page"
+    :length="9"
+    :total-visible="6"
+    rounded="circle"
+    style="color: #a1b1cb"
+  >
+  </v-pagination>
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
