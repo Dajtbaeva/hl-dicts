@@ -6,27 +6,22 @@ export default {
   setup() {
     const { getDicts, getDictItems, dicts, loading } = useUserStore();
     // onMounted(getDicts);
-    return { dicts, loading };
+    return { dicts, loading, getDicts };
   },
 };
 </script>
 
 <template>
-  <!-- <v-container fluid>
-    <div v-if="!loading">
-      <div v-for="dict of Object.values(dicts)" :key="dict">
-        {{ dict }}
-      </div>
-    </div>
-    <h3 align="center" style="color: black" v-else>Loading...</h3>
-  </v-container> -->
   <v-container fluid>
+    <h3 align="center">Dictionaries</h3>
     <v-list>
-      <v-list-item v-for="dict of Object.values(dicts)" :key="dict">
-        <v-list-item-content> {{ dict }} </v-list-item-content>
+      <v-list-item
+        v-for="[k, v] of Object.entries(dicts)"
+        :key="k"
+        class="border px-5"
+      >
+        <v-list-item-content> {{ k }}: {{ v }} </v-list-item-content>
       </v-list-item>
     </v-list>
   </v-container>
 </template>
-
-<style scoped></style>
