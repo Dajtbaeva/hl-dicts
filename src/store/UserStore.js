@@ -46,8 +46,8 @@ export const useUserStore = defineStore("userStore", () => {
       loading.value = false;
     }
   };
-  onMounted(getDicts);
 
+  onMounted(getDicts);
   return {
     getDicts,
     getDictItems,

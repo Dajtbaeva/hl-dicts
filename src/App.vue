@@ -6,12 +6,13 @@ export default {
   setup() {
     const { getDicts, getDictItems, dicts, loading } = useUserStore();
     // onMounted(getDicts);
-    return { dicts, loading, getDicts };
+    // getDicts();
+    return { dicts, loading };
   },
 };
 </script>
 
-<template>
+<template> 
   <v-container fluid>
     <h3 align="center">Dictionaries</h3>
     <v-list>
