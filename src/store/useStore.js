@@ -10,7 +10,7 @@ export const useUserStore = defineStore("userStore", () => {
     "https://products.halyklife.kz/api/v1/test/insis/Arm/api/Dictionary/GetDictionaryList";
 
   const URL2 =
-    "https://products.halyklife.kz/api/v1/test/insis/Arm/api/Dictionary/GetDictionaryItems/DicFamilyStatus";
+    "https://products.halyklife.kz/api/v1/test/insis/Arm/api/Dictionary/GetDictionaryItems/DicInsuredEventCancelReason";
 
   const getDicts = async () => {
     try {
